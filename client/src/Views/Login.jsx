@@ -5,7 +5,7 @@ import Info from '../Components/Info';
 import styles from '../Components/styles.module.css';
 import { useCookies } from 'react-cookie';
 
-const Login = () => {
+const Login = (props) => {
     const [cookies, setCookie] = useCookies('usertoken');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,6 +23,8 @@ const Login = () => {
             })
             .then(res => navigate("/"))
             .catch(err => console.log(err))
+        
+        props.email(email)
     }
 
     return (

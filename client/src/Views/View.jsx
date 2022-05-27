@@ -65,23 +65,23 @@ const View = () => {
                     </div>
                     <div className={styles.viewRight}>
                         <h3>Date: </h3>
-                        <p>{dateFormat(eventInfo.date, 'mmmm dS yyyy')}</p>
+                        <p>{dateFormat(eventInfo.date, 'dddd, mmmm dS yyyy')}</p>
                         <h3>Time:</h3>
                         <p>{time}</p>
                         <h3>Location:</h3>
                         <p>{eventInfo.location}</p>
                         <h3>Attending:</h3>
-                        {eventInfo.attending.map((person, idx) => {
+                        {/* {eventInfo.attending.map((person, idx) => {
                             return (
                                 <p key={idx}>{person.firstName} {person.lastName}</p>
                             )
-                        })}
+                        })} */}
                         <h3>Maybe:</h3>
-                        {eventInfo.maybe.map((person, idx) => {
+                        {/* {eventInfo.maybe.map((person, idx) => {
                             return (
                                 <p key={idx}>{person.firstName} {person.lastName}</p>
                             )
-                        })}
+                        })} */}
                     </div>
                 </div>
             </div>

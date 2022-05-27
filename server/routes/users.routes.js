@@ -6,7 +6,7 @@ module.exports = app => {
     app.post("/api/users/login", UsersController.login);
     app.post("/api/users/logout", UsersController.logout);
     app.get("/api/users", UsersController.findAll);
-    app.get("/api/users/:id", UsersController.findOne);
+    app.get("/api/users/:email", UsersController.findOne);
     app.put("/api/users/:id", UsersController.updateOne);
     app.delete("/api/users/:id", UsersController.deleteOne);
 };

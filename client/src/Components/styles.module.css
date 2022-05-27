@@ -321,6 +321,56 @@ body {
     width: 50%;
 }
 
+/* Account view css */
+.accountWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.accountDiv {
+    background-color: white;
+    border: 3px solid black;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    width: 500px;
+}
+
+.accountDiv h3 {
+    text-align: center;
+}
+
+.accountLeft, .accountRight {
+    flex: 1;
+}
+
+.accountDiv span {
+    font-weight: bold;
+}
+
+.editBtn {
+    background-color: rgb(26,117,159);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    font-size: 12pt;
+    padding: 5px 25px;
+    margin-right: 30px;
+}
+
+.addressDiv {
+    margin-bottom: 20px;
+}
+.addressDiv p {
+    margin: 0;
+}
+
+.linkHome {
+    margin-bottom: 150px;
+    text-align: center;
+}
+
 /* Site Info component css */
 .siteMap {
     background-color: black;

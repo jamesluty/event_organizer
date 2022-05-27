@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useCookies} from 'react-cookie'
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [cookie, setCookie, removeCookie] = useCookies()
     const [searchEvents, setSearchEvents] = useState("");
     const [searchLocation, setSearchLocation] = useState("");
@@ -14,8 +14,12 @@ const Navbar = () => {
         navigate("/login/user")
     }
 
-    const account = () => {
-        navigate("/user/account")
+    const account = (id) => {
+        navigate(`/account/`)
+    }
+
+    const goToCreate = () => {
+        navigate("/create/event")
     }
 
     const logout = (e) => {
@@ -41,12 +45,10 @@ const Navbar = () => {
             </div>
             {cookie.usertoken ? (
                 <div>
-                    <button className={styles.loginBtn} onClick={account}>My Account</button>
+                    {!props.account ? <button className={styles.loginBtn} onClick={account}>My Account</button> : <button className={styles.loginBtn} onClick={goToCreate}>Create Event</button>}
                     <button className={styles.loginBtn} onClick={logout}>Logout</button>
                 </div>
                 ) : <button onClick={goToLogin} className={styles.loginBtn}>Login</button>}
-            
-            
         </div>
     )
 }

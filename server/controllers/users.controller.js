@@ -56,8 +56,8 @@ module.exports = {
     },
 
     findOne: (req, res) => {
-        User.findById(req.params.id)
-            .then(oneUser => res.json({ user: oneUser }))
+        User.findOne({email: req.params.email})
+            .then(oneUser => res.json({ email: oneUser }))
             .catch(err => res.json({ message: "Something went wrong", error: err }));
     },
 
