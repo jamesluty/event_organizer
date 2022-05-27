@@ -1,0 +1,375 @@
+/* Global csss */
+body {
+    background-color: rgb(242,243,174);
+}
+
+/* Navbar component css */
+.navbarWrapper {
+    align-items: center;
+    background-color: rgb(255,82,27);
+    border-bottom: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    gap: 50px;
+    margin: 10px 20px;
+}
+
+.siteName {
+    display: flex;
+}
+
+.navbar h1 {
+    font-family: 'Macondo', cursive;
+    font-size: 25pt;
+    margin: 0px;
+}
+
+.searchForm input {
+    border: 2px solid black;
+    font-size: 12pt;
+    height: 25px;
+    margin-top: 5px;
+    padding-left: 5px;
+    width: 200px;
+}
+
+.searchBtn {
+    background-color: rgb(26,117,159);
+    color: white;
+    font-size: 12pt;
+    width: 75px;
+    height: 31px;
+}
+
+.searchBtn:hover {
+    background-color: rgb(142,202,230);
+    color: black;
+}
+
+.loginBtn {
+    background-color: rgb(26,117,159);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    font-size: 12pt;
+    padding: 5px 25px;
+    margin-right: 30px;
+}
+
+.loginBtn:hover {
+    background-color: rgb(142,202,230);
+    color: black;
+}
+
+.links {
+    color: navy;
+    text-decoration: none;
+}
+
+/* Homepage view css */
+.homeWrapper {
+    margin-bottom: 100px;
+}
+
+.navLinks {
+    display: flex;
+    margin: 0px 10%;
+    gap: 5%;
+}
+
+.eventWrapper {
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    height: 225px;
+    margin: 0px 5%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.eventWrapper img {
+    flex: 2;
+    width: 200px;
+}
+
+.eventInfo {
+    flex: 5;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 10px 0px 0px;
+}
+
+.eventInfo p {
+    margin-bottom: 25px;
+}
+
+.eventInfo span {
+    font-weight: bold;
+}
+
+.shareOptions {
+    display: flex;
+    /* flex: 1; */
+    /* flex-direction: column; */
+    justify-content: space-between;
+    padding: 0px 30px 0px 00px;
+    text-align: right;
+}
+
+.shareOptions p {
+    margin-top: 5px;
+}
+
+.shareOptions span {
+    font-weight: bold;
+}
+
+.shareIcons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.eventHeader p, .eventHeader h3 {
+    margin: 0px 0px;
+}
+
+/* View page css */
+.viewWrapper {
+    margin: 0px 5%;
+}
+
+.viewHeader {
+    align-items: center;
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.viewLeftHeader {
+    align-items: center;
+    display: flex;
+    flex: 5;
+    justify-content: space-between;
+}
+
+.homeLink {
+    flex: 1;
+}
+
+.leftHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftHeader span {
+    font-weight: bold;
+}
+
+.viewBody {
+    display: flex;
+    gap: 100px;
+}
+
+.imgDiv {
+    display: flex;
+    height: 400px;
+    width: 100%;
+}
+
+.viewLeft {
+    flex: 5;
+}
+
+.viewRight {
+    flex: 1;
+    padding-top: 30px;
+}
+
+.viewRight p {
+    margin: 5px 0px;
+}
+
+.viewRight h3 {
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
+
+.attendingBtn {
+    background-color: blue;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    margin: 10px 20px 40px 0px;
+    padding: 10px 30px;
+}
+
+.maybeBtn {
+    background-color: lightskyblue;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    padding: 10px 30px;
+}
+
+/* Login view css */
+.loginWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.loginFormDiv {
+    background-color: white;
+    border: 3px solid black;
+    width: 35%;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.loginLeft, .loginRight {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.loginLeft label, .loginRight label {
+    flex: 1;
+}
+
+.loginLeft input, .loginRight input {
+    flex: 3;
+}
+
+.loginFormBtnsWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginFormBtn {
+    background-color: rgb(26,117,159);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    font-size: 12pt;
+    padding: 5px 25px;
+    margin-right: 30px;
+}
+
+/* Logout view css */
+.signupWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.signupFormDiv {
+    background-color: white;
+    border: 3px solid black;
+    width: 35%;
+}
+
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.signupFormSubDiv {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.signupFormSubDiv label {
+    flex: 1;
+}
+
+.signupFormSubDiv input {
+    flex: 2;
+    width: 50px;
+}
+
+/* EventForm view css */
+.formHeader {
+    text-align: center;
+}
+
+.eventFormDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.eventForm {
+    background-color: white;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    padding: 20px;
+    width: 50%;
+}
+
+/* Site Info component css */
+.siteMap {
+    background-color: black;
+    bottom: 0px;
+    color: white;
+    height: 275px;
+    padding-top: 1px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.siteMapWrapper {
+    margin: 0px 5%;
+}
+
+.siteInfo {
+    margin: 10px;
+}
+
+.siteMapBody {
+    display: flex;
+    justify-content: space-around;
+}
+
+.siteMapDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.siteMapDiv h3 {
+    margin: 10px 0px 10px 0px;
+}
+
+.siteMapLinks {
+    color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.siteLinks {
+    color: grey;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+.siteMapShare {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+}
