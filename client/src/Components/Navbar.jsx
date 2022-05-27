@@ -26,9 +26,9 @@ const Navbar = (props) => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/users/logout")
             .then(res => console.log(res))
-            .then(res => removeCookie('usertoken'))
             .catch(err => console.log(err))
         removeCookie('usertoken')
+        navigate("/")
     }
 
     return (

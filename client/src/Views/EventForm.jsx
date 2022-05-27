@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import styles from '../Components/styles.module.css'
 import Info from '../Components/Info'
@@ -68,6 +68,9 @@ const EventForm = () => {
                     <input onChange={e => setIsPrivate(e.target.checked)} checked={isPrivate} type="checkbox"/><span>Private?</span>
                     <button>Create</button>
                 </form>
+            </div>
+            <div className={styles.linkHome}>
+                <Link to="/"><h3>Home</h3></Link>
             </div>
             <Info/>
         </div>

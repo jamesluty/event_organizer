@@ -1,6 +1,18 @@
 const Event = require("../models/events.model");
 
 module.exports = {
+    attending: (req, res) => {
+        Event.findByIdAndUpdate(req.params.id)
+            .then(allEvents => res.json({ events: allEvents.attending }))
+            .catch(err => res.json({ message: "Something went wrong", error: err }));
+    },
+
+    maybe: (req, res) => {
+        Event.findByIdAndUpdate(req.params.id)
+            .then(allEvents => res.json({ events: allEvents.maybe }))
+            .catch(err => res.json({ message: "Something went wrong", error: err }));
+    },
+
     findAll: (req, res) => {
         Event.find()
             .then(allEvents => res.json({ events: allEvents }))

@@ -9,7 +9,8 @@ import { EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, Twitter
 
 const View = () => {
     const {event, id} = useParams();
-    const [eventInfo, setEventInfo] = useState("");
+    const [eventInfo, setEventInfo] = useState({});
+    const [refresh, setRefresh] = useState(false)
     let time;
 
     useEffect(() => {
@@ -18,12 +19,34 @@ const View = () => {
                 setEventInfo(res.data.event)
             })
             .catch(err => console.log(err))
-    }, [id])
+    }, [id, refresh])
 
     if(parseInt(eventInfo.time) > 12){
         time = parseInt(eventInfo.time) - 12 + " pm"
     } else {
         time = parseInt(eventInfo.time) + " am"
+    }
+
+    const attending = (e) => {
+        e.preventDefault();
+        const name = {
+            firstName: "James",
+            lastName: "Luty"
+        }
+        axios.put(`http://localhost:8000/api/events/attending/${id}`, name)
+            .then(res => setRefresh(!refresh))
+            .catch(err => console.log(err))
+    }
+
+    const maybe = (e) => {
+        e.preventDefault();
+        const name = {
+            firstName: "James",
+            lastName: "Luty"
+        }
+        axios.put(`http://localhost:8000/api/events/maybe/${id}` + name)
+            .then(res => setRefresh(!refresh))
+            .catch(err => console.log(err))
     }
 
     return (
@@ -59,8 +82,8 @@ const View = () => {
                         <h3>Event Details:</h3>
                         <p>{eventInfo.details} </p>
                         <div className={styles.rsvpBtn}>
-                            <button className={styles.attendingBtn}>Attending</button>
-                            <button className={styles.maybeBtn}>Maybe</button>
+                            <button onClick={attending} className={styles.attendingBtn}>Attending</button>
+                            <button onClick={maybe} className={styles.maybeBtn}>Maybe</button>
                         </div>
                     </div>
                     <div className={styles.viewRight}>
@@ -71,17 +94,17 @@ const View = () => {
                         <h3>Location:</h3>
                         <p>{eventInfo.location}</p>
                         <h3>Attending:</h3>
-                        {/* {eventInfo.attending.map((person, idx) => {
+                        {eventInfo.attending && eventInfo.attending.map((person, idx) => {
                             return (
                                 <p key={idx}>{person.firstName} {person.lastName}</p>
                             )
-                        })} */}
+                        })}
                         <h3>Maybe:</h3>
-                        {/* {eventInfo.maybe.map((person, idx) => {
+                        {eventInfo.maybe && eventInfo.maybe.map((person, idx) => {
                             return (
                                 <p key={idx}>{person.firstName} {person.lastName}</p>
                             )
-                        })} */}
+                        })}
                     </div>
                 </div>
             </div>

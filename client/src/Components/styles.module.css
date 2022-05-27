@@ -316,7 +316,6 @@ body {
     border: 3px solid black;
     display: flex;
     flex-direction: column;
-    margin-bottom: 100px;
     padding: 20px;
     width: 50%;
 }
