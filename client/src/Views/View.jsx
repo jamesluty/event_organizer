@@ -3,14 +3,19 @@ import { Link, useParams } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import styles from '../Components/styles.module.css'
 import Info from '../Components/Info'
+import Popup from '../Components/Popup'
 import axios from 'axios'
 import dateFormat from 'dateformat'
 import { EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from 'react-share'
+import { useCookies } from 'react-cookie'
 
 const View = () => {
+    const [cookie] = useCookies();
     const {event, id} = useParams();
     const [eventInfo, setEventInfo] = useState({});
-    const [refresh, setRefresh] = useState(false)
+    const [refresh, setRefresh] = useState(false);
+    const [popup, setPopup] = useState(false);
+    const [name, setName] = useState("");
     let time;
 
     useEffect(() => {
@@ -27,24 +32,41 @@ const View = () => {
         time = parseInt(eventInfo.time) + " am"
     }
 
+    const togglePopup = (bool) => {
+        setPopup(bool)
+    }
+
+    const getName = (fullName) => {
+        setName(fullName)
+    }
+
     const attending = (e) => {
         e.preventDefault();
-        const name = {
-            firstName: "James",
-            lastName: "Luty"
+        if(cookie.usertoken){
+            setPopup(true)
+        } else {
+            console.log("fail")
         }
-        axios.put(`http://localhost:8000/api/events/attending/${id}`, name)
-            .then(res => setRefresh(!refresh))
-            .catch(err => console.log(err))
+        // const name = {
+        //     attending: {
+        //         firstName: "James",
+        //         lastName: "Luty"
+        //     }
+        // }
+        // axios.patch(`http://localhost:8000/api/events/attending/${id}`, name)
+        //     .then(res => setRefresh(!refresh))
+        //     .catch(err => console.log(err))
     }
 
     const maybe = (e) => {
         e.preventDefault();
         const name = {
-            firstName: "James",
-            lastName: "Luty"
+            maybe: {
+                firstName: "James",
+                lastName: "Luty"
+            }
         }
-        axios.put(`http://localhost:8000/api/events/maybe/${id}` + name)
+        axios.patch(`http://localhost:8000/api/events/maybe/${id}` + name)
             .then(res => setRefresh(!refresh))
             .catch(err => console.log(err))
     }
@@ -84,6 +106,7 @@ const View = () => {
                         <div className={styles.rsvpBtn}>
                             <button onClick={attending} className={styles.attendingBtn}>Attending</button>
                             <button onClick={maybe} className={styles.maybeBtn}>Maybe</button>
+                            {popup && <Popup getName={getName} handleClose={togglePopup}/>}
                         </div>
                     </div>
                     <div className={styles.viewRight}>

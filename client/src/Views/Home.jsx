@@ -38,30 +38,34 @@ const Home = () => {
             </div> */}
                 <div>
                     {events.map((event) => {
-                        let date = event.date
-                        let time = event.time
-                        if(parseInt(time) > 12){
-                            time = parseInt(time) - 12 + "pm"
-                        } else {
-                            time = parseInt(time) + "am"
-                        }
-                        return (
-                            <div key={event._id} onClick={() => goToEvent(event.eventName.replaceAll(" ", "-"), event._id)} className={styles.eventWrapper}>
-                                <img src={event.url} alt="event_img" />
-                                <div className={styles.eventInfo}>
-                                    <div className={styles.eventHeader}>
-                                        <p>{dateFormat(date, 'mmmm dS yyyy')} at {time}</p>
-                                        <h3>{event.eventName}</h3>
-                                    </div>
-                                    <p>{event.summary}</p>
-                                    <p><span>Location:</span> {event.location}</p>
-                                    <div className={styles.shareOptions}>
-                                        <p>{event.attending.length} Attending | {event.maybe.length} Maybe</p>
-                                        <p><span>Hosted By:</span> {event.group}</p>
+                        if (event.date < new Date().toLocaleString()) {
+                            let date = event.date
+                            let time = event.time
+                            if (parseInt(time) > 12) {
+                                time = parseInt(time) - 12 + "pm"
+                            } else {
+                                time = parseInt(time) + "am"
+                            }
+                            return (
+                                <div key={event._id} onClick={() => goToEvent(event.eventName.replaceAll(" ", "-"), event._id)} className={styles.eventWrapper}>
+                                    <img src={event.url} alt="event_img" />
+                                    <div className={styles.eventInfo}>
+                                        <div className={styles.eventHeader}>
+                                            <p>{dateFormat(date, 'mmmm dS yyyy')} at {time}</p>
+                                            <h3>{event.eventName}</h3>
+                                        </div>
+                                        <p>{event.summary}</p>
+                                        <p><span>Location:</span> {event.location}</p>
+                                        <div className={styles.shareOptions}>
+                                            <p>{event.attending.length} Attending | {event.maybe.length} Maybe</p>
+                                            <p><span>Hosted By:</span> {event.group}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
+                            )
+                        } else {
+                            return <p className={styles.noEvents}>There are no events available for search parameters.</p>
+                        }
                     })}
                 </div>
             </div>
