@@ -422,7 +422,7 @@ body {
 /* Site Info component css */
 .siteMap {
     background-color: black;
-    bottom: 0px;
+    bottom: 0;
     color: white;
     height: 275px;
     padding-top: 1px;
