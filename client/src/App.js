@@ -8,7 +8,6 @@ import Login from './Views/Login';
 import Signup from './Views/Signup';
 import Account from './Views/Account';
 import { useState } from 'react';
-import axios from 'axios';
 
 function App() {
   const [ email, setEmail ] = useState("");
