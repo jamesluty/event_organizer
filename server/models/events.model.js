@@ -13,6 +13,7 @@ const AttendingSchema = new mongoose.Schema({
 const MaybeSchema = new mongoose.Schema({
     firstName: {
         type: String,
+        required: [true, "First Name is required!"]
     },
     lastName: {
         type: String,
